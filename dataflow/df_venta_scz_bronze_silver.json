@@ -70,7 +70,7 @@
 				"          cliente_nombre = trim(cliente_nombre),",
 				"          producto = trim(producto)) ~> derivedColumn1",
 				"derivedColumn1 derive(producto = initCap(regexReplace(producto,'\\\\s+',' '))) ~> derivedColumn2",
-				"derivedColumn2 derive(sucursal = iif(in(['SCZ','Santa Cruz','Sta Cruz','santa cruz','SANTA CRUZ','Sta. Cruz','SC'],sucursal),'Santa Cruz',sucursal)) ~> derivedColumn3",
+				"derivedColumn2 derive(sucursal = iif(in(['SCZ','Santa Cruz','SC','santa cruz','SANTA CRUZ','Santacruz','S.C.','Stacruz','Sta. Cruz','Sta Cruz'], sucursal), 'Santa Cruz', sucursal)) ~> derivedColumn3",
 				"derivedColumn3 derive(precio_unitario = toFloat(regexReplace(toString(precio_unitario),'[^0-9.]',''))\r",
 				"\r",
 				",",
